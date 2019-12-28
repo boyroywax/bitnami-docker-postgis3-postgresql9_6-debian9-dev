@@ -1,4 +1,6 @@
-# bitnami-docker-postgis3-postgresql9-debian9-dev
+# bitnami-docker-postgis3-postgresql9_6-debian9-dev
+
+# CURRENT VERSION NOT WORKING
 
 [PostGIS Installation Documentation](https://postgis.net/docs/postgis_installation.html#make_install_postgis_extensions)
 
