@@ -8,6 +8,15 @@ Install Proj4 to debian. [Proj.org Documentation](https://proj.org/install.html)
 ```bash
 sudo apt-get install proj-bin
 ```
+OR - Install from binary.
+```bash
+wget https://download.osgeo.org/proj/proj-6.2.0.tar.gz
+tar xvf proj-6.2.0.tar.gz
+cd proj-6.2.0
+./configure
+make -j $(nproc)
+make install
+```
 
 Install GDAL binaries.  [GDAL Documentation](https://gdal.org/download.html)
 ```bash
@@ -36,7 +45,7 @@ kubectl run postgis-postgresql-client --rm --tty -i --restart='Never' --namespac
 ```
 
 
-Add plv8 extension to postgresql - [github](https://plv8.github.io)
+Add plv8 extension to postgresql - [PLV8 Github](https://plv8.github.io). This extension is probably not necesssary.
 ```postgresql
 CREATE EXTENSION plv8;
 ```
