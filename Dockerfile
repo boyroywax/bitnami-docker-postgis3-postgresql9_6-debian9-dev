@@ -3,9 +3,9 @@ LABEL maintainer "Bitnami <containers@bitnami.com>"
 
 ARG PostgresqlVersion="9.6.16-1"
 ARG PostgresqlChkSum="a58944dc3c1079eaf7c34733ce75b82a99183f7f356d7e07e83797df1889064f"
-ARG PostGISVer="3.0.0"
+ARG PostGISVer="3.0.1dev"
 ARG GeosVer="3.8.0"
-ARG PLv8Ver="2.3.13"
+# ARG PLv8Ver="2.3.13"
 
 ENV BITNAMI_PKG_CHMOD="-R g+rwX" \
     HOME="/" \
@@ -19,7 +19,7 @@ ENV BITNAMI_PKG_CHMOD="-R g+rwX" \
 
 COPY prebuildfs /
 # Install required system packages and dependencies
-RUN install_packages ca-certificates curl libbsd0 libc6 libedit2 libffi6 libgcc1 libgmp10 libgnutls30 libhogweed4 libicu57 libidn11 libldap-2.4-2 liblzma5 libncurses5 libnettle6 libnss-wrapper libp11-kit0 libsasl2-2 libsqlite3-0 libssl1.1 libstdc++6 libtasn1-6 libtinfo5 libuuid1 libxml2 libxslt1.1 locales procps unzip zlib1g build-essential libtool autoconf unzip wget libproj-dev libgdal-dev git python libc++-dev libxml2-dev
+RUN install_packages ca-certificates curl libbsd0 libc6 libedit2 libffi6 libgcc1 libgmp10 libgnutls30 libhogweed4 libicu57 libidn11 libldap-2.4-2 liblzma5 libncurses5 libnettle6 libnss-wrapper libp11-kit0 libsasl2-2 libsqlite3-0 libssl1.1 libstdc++6 libtasn1-6 libtinfo5 libuuid1 libxml2 libxslt1.1 locales procps unzip zlib1g build-essential libtool autoconf unzip wget libproj-dev libgdal-dev git python libc++-dev libxml2-dev proj-bin sqlite3
 RUN . ./libcomponent.sh && component_unpack "postgresql" ${PostgresqlVersion} --checksum ${PostgresqlChkSum}
 RUN curl --silent -L https://github.com/tianon/gosu/releases/download/1.11/gosu-amd64 > /usr/local/bin/gosu && \
     echo 0b843df6d86e270c5b0f5cbd3c326a04e18f4b7f9b8457fa497b0454c4b138d7 /usr/local/bin/gosu | sha256sum --check && \
